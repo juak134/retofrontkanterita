@@ -1,0 +1,75 @@
+<div class="modal-header">
+    <h3 class="modal-title">Agregar Detalle</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalClose()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- Inicio del formulario -->
+<mat-dialog-content class="modal-body">
+    <div>
+      <form [formGroup]="formDetail" (ngSubmit)="addDetail()" novalidate>
+        <div class="row form-group">
+          <div class="col-recharge">  <strong>Detalle de la Orden</strong> </div>  
+            <div class="col">
+              <mat-form-field>
+                  <input matInput type="text" text formControlName="detail" class="align"
+                         placeholder="Detalle de la Orden"
+                         required>
+                    <div *ngIf="formErrors.detail">
+                        <div *ngFor="let errors of formErrors.detail" >
+                            <small class="form-text text-danger">{{ errors }}</small>
+                        </div>
+                    </div>
+              </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-recharge">  <strong>Cantidad</strong> </div>  
+                <div class="col">
+                <mat-form-field>
+                    <input matInput type="text" #cantidad text formControlName="cantidad" class="align"
+                            placeholder="Cantidad"
+                            required>
+                        <div *ngIf="formErrors.cantidad">
+                            <div *ngFor="let errors of formErrors.cantidad" >
+                                <small class="form-text text-danger">{{ errors }}</small>
+                            </div>
+                        </div>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-recharge">  <strong>Precio Unitario</strong> </div>  
+                <div class="col">
+                <mat-form-field>
+                    <input matInput type="text" text #precio formControlName="precioUnitario" class="align"
+                            placeholder="Precio Unitario"
+                            required>
+                        <div *ngIf="formErrors.precioUnitario">
+                            <div *ngFor="let errors of formErrors.precioUnitario" >
+                                <small class="form-text text-danger">{{ errors }}</small>
+                            </div>
+                        </div>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-recharge">  <strong>Total:</strong> ${{ precio.value * cantidad.value}}</div>  
+            <div class="col">
+
+            </div>
+        </div>
+    
+        <mat-dialog-actions class="btn-login d-flex justify-content-center ">
+            <button type="submit"  mat-raised-button color="primary" class="margin-one" color="primary"
+                    [disabled]="(formDetail.invalid || !formDetail.dirty)" >
+              Registrar
+            </button>
+        </mat-dialog-actions>
+      </form>
+    </div>
+</mat-dialog-content>
