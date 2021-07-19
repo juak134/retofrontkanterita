@@ -1,0 +1,21 @@
+.title {
+    text-align: center;
+}
+
+.shear {
+    padding-left: 25%;
+}
+
+.dataOrder {
+    padding-left: 20%;
+    padding-right: 3%;
+}
+.messageNoInfo {
+    text-align: center;
+}
+
+.table {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 1%;
+}
